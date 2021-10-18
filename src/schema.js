@@ -16,8 +16,14 @@ const schemaCustomers= Joi.object({
     cpf: Joi.string().min(11).max(11).required(),
     birthday: extendedJoi.date().format('YYYY-MM-DD').utc(),
 });
+const schemaRentals= Joi.object({
+    customerId: Joi.number().required(),
+    gameId:Joi.number().required(),
+    daysRented: Joi.number().positive().required()
+});
 
 export{
     schemaGames,
-    schemaCustomers
+    schemaCustomers,
+    schemaRentals
 }
